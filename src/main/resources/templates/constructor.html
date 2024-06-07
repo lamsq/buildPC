@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>CloudPC</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+  </head>
+  
+ <body>
+  <h1>Build your PC!</h1>
+  <img th:src="@{/images/pc.png}"/>
+    <form method="POST" th:object="${pc}">
+    <div class="grid">
+      
+      <div class="part-group" id="COOLER">
+        <h3>Choose your cooler:</h3>
+        <div th:each="part : ${COOLER}">
+          <input th:field="*{parts}" type="checkbox" th:value="${part.id}"/>
+          <span th:text="${part.model}">PART</span><br/>
+        </div>
+      </div>
+
+      <div class="part-group" id="CPU">
+        <h3>Choose your CPU:</h3>
+        <div th:each="part : ${CPU}">
+          <input th:field="*{parts}" type="checkbox" th:value="${part.id}"/>
+          <span th:text="${part.model}">PART</span><br/>
+        </div>
+      </div>
+
+      <div class="part-group" id="GPU">
+        <h3>Choose your GPU:</h3>
+        <div th:each="part : ${GPU}">
+          <input th:field="*{parts}" type="checkbox" th:value="${part.id}"/>
+          <span th:text="${part.model}">PART</span><br/>
+        </div>
+      </div>
+
+      <div class="part-group" id="CASE">
+        <h3>Choose your case:</h3>
+        <div th:each="part : ${CASE}">
+          <input th:field="*{parts}" type="checkbox" th:value="${part.id}"/>
+          <span th:text="${part.model}">PART</span><br/>
+        </div>
+      </div>
+
+      <div class="part-group" id="COOLER">
+        <h3>Choose your cooler:</h3>
+        <div th:each="part : ${COOLER}">
+          <input th:field="*{parts}" type="checkbox" th:value="${part.id}"/>
+          <span th:text="${part.model}">PART</span><br/>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Name your pc:</h3>
+      <input type="text" th:field="*{name}"/><br/>
+      <button>Submit Your PC</button>
+    </div>
+
+    </form>
+ </body>
+</html>
